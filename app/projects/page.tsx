@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 type ProjectMedia = {
     type: "image" | "video";
@@ -13,6 +16,11 @@ type Project = {
     media: ProjectMedia[];
     status: string;
     date: string;
+};
+
+type Viewer = {
+  items: ProjectMedia[];
+  index: number;
 };
 
 const projects: Project[] = [
@@ -39,33 +47,73 @@ const projects: Project[] = [
         media: [
             {
                 type: "image",
-                src: "/images/projects/school-one-1.jpg",
+                src: "/images/projects/ogbo1.jpeg",
                 alt: "School Project One classroom",
             },
             {
                 type: "image",
-                src: "/images/projects/school-one-2.jpg",
+                src: "/images/projects/ogbo2.jpeg",
                 alt: "School Project One learning space",
             },
             {
                 type: "image",
-                src: "/images/projects/school-one-3.jpg",
+                src: "/images/projects/ogbo3.jpeg",
                 alt: "School Project One facilities",
             },
             {
                 type: "image",
-                src: "/images/projects/school-one-4.jpg",
+                src: "/images/projects/ogbo4.jpeg",
                 alt: "School Project One facilities",
             },
             {
-                type: "video",
-                src: "/videos/projects/school-one-video.mp4",
-                alt: "School Project One project video",
+                type: "image",
+                src: "/images/projects/ogbo5.jpeg",
+                alt: "School Project One facilities",
             },
+            {
+                type: "image",
+                src: "/images/projects/ogbo6.jpeg",
+                alt: "School Project One facilities",
+            },
+            {
+                type: "image",
+                src: "/images/projects/ogbo7.jpeg",
+                alt: "School Project One facilities",
+            },
+            {
+                type: "image",
+                src: "/images/projects/ogbo8.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ogbo9.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ogbo10.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ogbo11.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ogbo12.jpg",
+                alt: "School Project One facilities",
+            },
+            // {
+            //     type: "video",
+            //     src: "/videos/projects/school-one-video.mp4",
+            //     alt: "School Project One project video",
+            // },
         ],
 
         status: "Commissioned",
-        date: "August 2026",
+        date: "July 2026",
     },
 
     {
@@ -94,38 +142,73 @@ const projects: Project[] = [
         media: [
             {
                 type: "image",
-                src: "/images/projects/school-two-1.jpg",
-                alt: "School Project Two exterior",
+                src: "/images/projects/ngwa1.jpeg",
+                alt: "School Project One classroom",
             },
-
-             {
-                type: "image",
-                src: "/images/projects/school-two-2.jpg",
-                alt: "School Project Two classroom",
-            },
-
-             {
-                type: "image",
-                src: "/images/projects/school-two-4.jpg",
-                alt: "School Project Two classroom",
-            },
-            
-           
             {
                 type: "image",
-                src: "/images/projects/school-two-3.jpg",
-                alt: "School Project Two technology space",
+                src: "/images/projects/ngwa2.jpeg",
+                alt: "School Project One learning space",
             },
-
             {
-                type: "video",
-                src: "/videos/projects/school-two-video.mp4",
-                alt: "School Project Two project video",
+                type: "image",
+                src: "/images/projects/ngwa3.jpeg",
+                alt: "School Project One facilities",
             },
+            {
+                type: "image",
+                src: "/images/projects/ngwa4.jpeg",
+                alt: "School Project One facilities",
+            },
+            {
+                type: "image",
+                src: "/images/projects/ngwa5.jpeg",
+                alt: "School Project One facilities",
+            },
+            {
+                type: "image",
+                src: "/images/projects/ngwa6.jpeg",
+                alt: "School Project One facilities",
+            },
+            {
+                type: "image",
+                src: "/images/projects/ngwa7.jpeg",
+                alt: "School Project One facilities",
+            },
+            {
+                type: "image",
+                src: "/images/projects/ngwa8.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ngwa9.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ngwa10.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ngwa11.jpeg",
+                alt: "School Project One facilities",
+            },
+             {
+                type: "image",
+                src: "/images/projects/ngwa12.jpeg",
+                alt: "School Project One facilities",
+            },
+            // {
+            //     type: "video",
+            //     src: "/videos/projects/school-one-video.mp4",
+            //     alt: "School Project One project video",
+            // },
         ],
 
         status: "Commissioned",
-        date: "August 2026",
+        date: "July 2026",
     },
 
     {
@@ -152,24 +235,45 @@ const projects: Project[] = [
         media: [
             {
                 type: "image",
-                src: "/images/projects/school-three-1.jpg",
+                src: "/images/projects/aba1.jpeg",
                 alt: "School Project Three classroom",
             },
             {
                 type: "image",
-                src: "/images/projects/school-three-2.jpg",
+                src: "/images/projects/aba2.jpeg",
                 alt: "School Project Three learning facility",
             },
             {
-                type: "video",
-                src: "/videos/projects/school-three-video.mp4",
-                alt: "School Project Three project video",
+                type: "image",
+                src: "/images/projects/aba3.jpeg",
+                alt: "School Project Three infrastructure",
             },
             {
                 type: "image",
-                src: "/images/projects/school-three-3.jpg",
+                src: "/images/projects/aba4.jpeg",
                 alt: "School Project Three infrastructure",
             },
+            {
+                type: "image",
+                src: "/images/projects/aba5.jpeg",
+                alt: "School Project Three infrastructure",
+            },
+            {
+                type: "image",
+                src: "/images/projects/aba6.jpeg",
+                alt: "School Project Three infrastructure",
+            },
+            {
+                type: "video",
+                src: "/images/projects/aba7.mp4",
+                alt: "School Project Three project video",
+            },
+            {
+                type: "video",
+                src: "/images/projects/aba8.mp4",
+                alt: "School Project Three project video",
+            },
+            
         ],
 
         status: "Development in Progress",
@@ -210,70 +314,184 @@ const projectApproach = [
       "Maintenance, technical support, asset management and operational frameworks."
   }
 ];
-export default function Projects(){return <><header className="site-header"><Link className="brand" href="/"><img src="/images/logo.png" alt="Blue Giraffe Development Ltd"/></Link><Link className="text-link" href="/">← Back to home</Link></header><main className="inner-page section-sand"><p className="eyebrow">Our projects</p><h1>Practical work. Measurable progress.</h1><p className="lead">Explore selected school projects and the thinking, infrastructure and delivery behind them.</p>
+
+export default function Projects() {
+  const [viewer, setViewer] = useState<Viewer | null>(null);
+
+  const current = viewer?.items[viewer.index];
+
+  const moveViewer = (direction: number) => {
+    if (!viewer) return;
+
+    setViewer({
+      ...viewer,
+      index:
+        (viewer.index + direction + viewer.items.length) %
+        viewer.items.length,
+    });
+  };
+
+  return (
+    <>
+      <header className="site-header">
+        <Link className="brand" href="/">
+          <img src="/images/logo.png" alt="Blue Giraffe Development Ltd" />
+        </Link>
+        <Link className="text-link" href="/">
+          ← Back to home
+        </Link>
+      </header>
+      <main className="inner-page section-sand">
+        <p className="eyebrow">Our projects</p>
+        <h1>Practical work. Measurable progress.</h1>
+        <p className="lead">
+          Explore selected school projects and the thinking, infrastructure and delivery behind them.
+        </p>
 
 {projects.map((project) => (
-    <section
-        className="featured-project"
-        key={project.title}
-    >
-        <p className="eyebrow">Featured project</p>
+  <section
+    className="featured-project"
+    key={project.title}
+  >
+    <p className="eyebrow">Featured project</p>
 
-        <h2>{project.title}</h2>
+    <h2>{project.title}</h2>
 
-        <p>{project.description}</p>
+    <p>{project.description}</p>
 
-        <h3>Key features</h3>
+    <h3>Key features</h3>
 
-        <ul>
-            {project.features.map((feature) => (
-                <li key={feature}>{feature}</li>
-            ))}
-        </ul>
+    <ul>
+      {project.features.map((feature) => (
+        <li key={feature}>{feature}</li>
+      ))}
+    </ul>
 
-        <div className="project-slider">
-            {project.media.map((item) =>
-                item.type === "video" ? (
-                    <video
-                        key={item.src}
-                        className="project-gallery-media"
-                        controls
-                        playsInline
-                        preload="metadata"
-                    >
-                        <source
-                            src={item.src}
-                            type="video/mp4"
-                        />
-                    </video>
-                ) : (
-                    <img
-                        key={item.src}
-                        src={item.src}
-                        alt={item.alt || project.title}
-                        className="project-gallery-media"
-                    />
-                )
-            )}
-        </div>
+    <div className="project-slider">
+      {project.media.map((item, index) => (
+        <button
+          className="media-tile"
+          key={`${item.src}-${index}`}
+          onClick={() =>
+            setViewer({
+              items: project.media,
+              index,
+            })
+          }
+          aria-label={`Open ${item.alt || project.title}`}
+        >
+          {item.type === "video" ? (
+            <>
+              <video
+                muted
+                preload="metadata"
+                playsInline
+              >
+                <source
+                  src={item.src}
+                  type="video/mp4"
+                />
+              </video>
 
-        <strong>
-            Status: {project.status} | Date: {project.date}
-        </strong>
-    </section>
+              <span>▶ Play video</span>
+            </>
+          ) : (
+            <img
+              src={item.src}
+              alt={item.alt || project.title}
+            />
+          )}
+        </button>
+      ))}
+    </div>
+
+    <strong>
+      Status: {project.status} | Date: {project.date}
+    </strong>
+  </section>
 ))}
 
-
 <section>
-    <h2>Our project approach</h2>
+  <h2>Our project approach</h2>
 
-<ol>
-  {projectApproach.map((step) => (
-    <li key={step.title}>
-      <h3>{step.title}</h3>
-      <p>{step.paragraph}</p>
-    </li>
-  ))}
-</ol>
+  <ol>
+    {projectApproach.map((step) => (
+      <li key={step.title}>
+        <h3>{step.title}</h3>
+        <p>{step.paragraph}</p>
+      </li>
+    ))}
+  </ol>
 
-<h2>The result</h2><p>We do not build technology into schools as an afterthought.</p><p>We develop the learning environments where infrastructure and technology are designed to work together from the beginning.</p></section></main></>}
+  <h2>The result</h2>
+
+  <p>
+    We do not build technology into schools as an afterthought.
+  </p>
+
+  <p>
+    We develop the learning environments where infrastructure
+    and technology are designed to work together from the beginning.
+  </p>
+</section>
+</main>
+
+{viewer && current && (
+  <div
+    className="media-lightbox"
+    onClick={() => setViewer(null)}
+  >
+    <button
+      className="lightbox-close"
+      onClick={() => setViewer(null)}
+      aria-label="Close viewer"
+    >
+      ×
+    </button>
+
+    <button
+      className="lightbox-arrow left"
+      onClick={(event) => {
+        event.stopPropagation();
+        moveViewer(-1);
+      }}
+      aria-label="Previous media"
+    >
+      ‹
+    </button>
+
+    <div
+      className="lightbox-content"
+      onClick={(event) => event.stopPropagation()}
+    >
+      {current.type === "video" ? (
+        <video
+          controls
+          autoPlay
+          playsInline
+          src={current.src}
+        />
+      ) : (
+        <img
+          src={current.src}
+          alt={current.alt || "Project image"}
+        />
+      )}
+    </div>
+
+    <button
+      className="lightbox-arrow right"
+      onClick={(event) => {
+        event.stopPropagation();
+        moveViewer(1);
+      }}
+      aria-label="Next media"
+    >
+      ›
+    </button>
+  </div>
+)}
+
+</>
+);
+}

@@ -329,16 +329,40 @@
 }
 
 
-/* White modal for Vision, Focus, Experience and Capability */
-.modal {
-  background: #ffffff;
+
+/* White information modal for the services array */
+.info-modal {
+  width: min(90vw, 760px);
+  padding: 3rem;
   color: var(--ink);
+  background: #ffffff !important;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
 }
 
-.modal h2 {
+.info-modal::before {
+  display: none;
+}
+
+.info-modal::backdrop {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.info-modal h2 {
   color: var(--blue);
 }
 
-.modal p {
+.info-modal-text {
   color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* Mobile adjustment */
+@media (max-width: 760px) {
+  .info-modal {
+    width: 90vw;
+    padding: 2rem 1.5rem;
+  }
 }

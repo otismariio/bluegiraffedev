@@ -10,6 +10,7 @@ const services = [
 ];
 
 export default function Home() {
+    
   const [menu, setMenu] = useState(false);
   const [slide, setSlide] = useState(0);
   const [modal, setModal] = useState<"service" | "gallery" | "video" | null>(null);
@@ -37,7 +38,29 @@ export default function Home() {
       </video>
       
       <span className="play">▶</span><span className="card-copy"><strong>Meet our Managing Director, Chief Mrs Orieji Okwara Emele</strong><small>Play a welcome message from our MD</small></span></button></div></section>
-      <section className="section-lilac" id="services"><div className="section-heading"><p className="eyebrow"></p><h2>What we do, and why it works.</h2></div><div className="service-list">{services.map((item, i) => <button key={item[0]} onClick={() => { setSelected(i); setModal("service"); }}><span>0{i + 1}</span><strong>{item[0]}</strong><i>+</i></button>)}</div></section>
+
+
+      <section className="section-lilac" id="services">
+        <div className="section-heading"><p className="eyebrow"></p>
+        <h2>What we do, and why it works.</h2></div>
+        
+        <div className="service-list">
+  {services.map((item, i) => (
+    <button
+      key={item[0]}
+      onClick={() => {
+        setSelected(i);
+        setModal("service");
+      }}
+    >
+      <span>0{i + 1}</span>
+      <strong>{item[0]}</strong>
+      <i>+</i>
+    </button>
+  ))}
+</div>
+        
+        </section>
 
       
       <section className="section-sand" id="projects">
@@ -107,76 +130,77 @@ export default function Home() {
 
     <footer className="site-footer"><img src="/images/logo2.png" alt="Blue Giraffe Development Ltd" /><div><p>Okenini Close, Living Spring Estate, Umuahia</p><a href="tel:+2349064815555">+2349064815555</a><a href="mailto:info@bluegiraffedev.com">info@bluegiraffedev.com</a></div><div><p>© {new Date().getFullYear()} Blue Giraffe Development Ltd</p><div className="socials"><a href="#">f</a><a href="#">◎</a><a href="#">in</a><a href="#">𝕏</a></div></div><a className="to-top" href="#top">↑<small>Top</small></a></footer>
 
-
-    {modal && (
-    <dialog
-        open
-        className={`modal ${
-            modal === "video" ? "video-modal" : ""
-        }`}
+<div className="service-list">
+  {services.map((item, i) => (
+    <button
+      key={item[0]}
+      onClick={() => {
+        setSelected(i);
+        setModal("service");
+      }}
     >
-        <button
-            className="modal-close"
-            onClick={() => setModal(null)}
-        >
-            ×
-        </button>
+      <span>0{i + 1}</span>
+      <strong>{item[0]}</strong>
+      <i>+</i>
+    </button>
+  ))}
+</div>
 
-        {modal === "service" && (
-            <>
-                <p className="eyebrow">Service</p>
+{modal && (
+  <dialog
+    open
+    className={`modal ${
+      modal === "service" ? "info-modal" : ""
+    }`}
+  >
+    <button
+      className="modal-close"
+      onClick={() => setModal(null)}
+      aria-label="Close modal"
+    >
+      ×
+    </button>
 
-                <h2>{services[selected][0]}</h2>
+    {modal === "service" && (
+      <>
+        <p className="eyebrow">Information</p>
 
-                <p>{services[selected][1]}</p>
+        <h2>{services[selected][0]}</h2>
 
-                <div className="two-col">
-                    <div>
-                        <strong>What we do</strong>
-                        <p>{services[selected][1]}</p>
-                    </div>
+        <p className="info-modal-text">
+          {services[selected][1]}
+        </p>
+      </>
+    )}
 
-                    <div>
-                        <strong>Why choose us</strong>
-                        <p>
-                            We combine local understanding,
-                            clear communication and dependable
-                            digital craft.
-                        </p>
-                    </div>
-                </div>
-            </>
-        )}
+    {modal === "gallery" && (
+      <>
+        <p className="eyebrow">Project gallery</p>
+        <h2>Smart School transformation</h2>
 
-        {modal === "gallery" && (
-            <>
-                <p className="eyebrow">Project gallery</p>
+        <div className="gallery-grid">
+          <div>
+            <small>Before</small>
+            <div className="gallery-shot before" />
+          </div>
 
-                <h2>Smart School transformation</h2>
+          <div>
+            <small>After</small>
+            <div className="gallery-shot after" />
+          </div>
+        </div>
+      </>
+    )}
 
-                <div className="gallery-grid">
-                    <div>
-                        <small>Before</small>
-                        <div className="gallery-shot before" />
-                    </div>
-
-                    <div>
-                        <small>After</small>
-                        <div className="gallery-shot after" />
-                    </div>
-                </div>
-            </>
-        )}
-
-        {modal === "video" && (
-            <video
-                controls
-                autoPlay
-                playsInline
-                src="/videos/md.mp4"
-            />
-        )}
-    </dialog>
+    {modal === "video" && (
+      <video
+        controls
+        autoPlay
+        playsInline
+        src="/videos/md.mp4"
+      />
+    )}
+  </dialog>
 )}
   </>;
 }

@@ -150,7 +150,11 @@ export default function Home() {
   <dialog
     open
     className={`modal ${
-      modal === "service" ? "info-modal" : ""
+      modal === "service"
+        ? "info-modal"
+        : modal === "video"
+          ? "video-modal"
+          : ""
     }`}
   >
     <button
@@ -193,13 +197,15 @@ export default function Home() {
     )}
 
     {modal === "video" && (
-      <video
-        controls
-        autoPlay
-        playsInline
-        src="/videos/md.mp4"
-      />
-    )}
+  <div className="md-video-frame">
+    <video
+      controls
+      autoPlay
+      playsInline
+      src="/videos/md.mp4"
+    />
+  </div>
+)}
   </dialog>
 )}
   </>;

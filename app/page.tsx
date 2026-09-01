@@ -31,7 +31,7 @@ export default function Home() {
           poster="/images/md-photo.jpeg"
       >
           <source
-              src="/videos/md.mp4"
+              src="/images/projects/md.mp4"
               type="video/mp4"
           />
       </video>

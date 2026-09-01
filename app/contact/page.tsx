@@ -1,0 +1,5 @@
+import Link from "next/link";
+
+export default function Contact() {
+  return <><header className="site-header"><Link className="brand" href="/"><img src="/images/logo.png" alt="Blue Giraffe Development Ltd" /></Link><Link className="text-link" href="/">← Back to site</Link></header><main className="contact-page section-cream"><div><p className="eyebrow">Contact us</p><h1>Let’s talk about what you’re building.</h1><p className="lead">Have a project, partnership or question? Reach the Blue Giraffe team through any of the channels below.</p></div><div className="contact-links"><a href="https://wa.me/2349064815555"><small>WhatsApp / Phone</small><strong>+2349064815555 ↗</strong></a><a href="mailto:info@bluegiraffedev.com"><small>Email</small><strong>info@bluegiraffedev.com ↗</strong></a><a href="#"><small>Facebook</small><strong>Blue Giraffe Development ↗</strong></a></div></main><footer className="site-footer"><img src="/images/logo2.png" alt="Blue Giraffe Development Ltd" /><p>Okenini Close, Living Spring Estate, Umuahia</p><p>© {new Date().getFullYear()} Blue Giraffe Development Ltd</p></footer></>;
+}

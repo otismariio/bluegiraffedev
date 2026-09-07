@@ -22,7 +22,47 @@ export default function Home() {
   return <>
     <header className="site-header"><Link className="brand" href="#top"><img src="/images/logo.png" alt="Blue Giraffe Development Ltd" /></Link><button className="menu-toggle" onClick={() => setMenu(!menu)} aria-label="Toggle menu">☰</button><nav className={menu ? "site-nav open" : "site-nav"}><a href="/#about" onClick={() => setMenu(false)}>About</a><Link href="/services">Services</Link><Link href="/projects">Projects</Link><Link href="/careers">Careers</Link><Link href="/contact">Contact</Link></nav></header>
     <main id="main-content">
-      <section className="hero section-blue" id="top"><div><h1>We turn bold ideas into complete, turnkey projects.</h1><p className="hero-text">Blue Giraffe Development Ltd creates clear, dependable technology for organisations ready to move forward.</p><a className="button" href="#about">Explore what we do ↗</a></div><div className="hero-slider"><div className="slide-image" style={{ backgroundImage: `url(/images/hero-${slide + 1}.png)` }} /><button className="slider-arrow previous" onClick={() => setSlide((slide + 2) % 3)} aria-label="Previous image">‹</button><button className="slider-arrow next" onClick={() => setSlide((slide + 1) % 3)} aria-label="Next image">›</button><div className="slider-dots">{[0, 1, 2].map(i => <button key={i} className={i === slide ? "active" : ""} onClick={() => setSlide(i)} aria-label={`Show image ${i + 1}`} />)}</div></div></section>
+      
+      {/* <section className="hero section-blue" id="top"><div><h1>We turn bold ideas into complete, turnkey projects.</h1><p className="hero-text">Blue Giraffe Development Ltd creates clear, dependable technology for organisations ready to move forward.</p><a className="button" href="#about">Explore what we do ↗</a></div><div className="hero-slider"><div className="slide-image" style={{ backgroundImage: `url(/images/hero-${slide + 1}.png)` }} /><button className="slider-arrow previous" onClick={() => setSlide((slide + 2) % 3)} aria-label="Previous image">‹</button><button className="slider-arrow next" onClick={() => setSlide((slide + 1) % 3)} aria-label="Next image">›</button><div className="slider-dots">{[0, 1, 2].map(i => <button key={i} className={i === slide ? "active" : ""} onClick={() => setSlide(i)} aria-label={`Show image ${i + 1}`} />)}</div></div></section> */}
+
+      <section className="hero-video-section" id="top">
+  <video
+    className="hero-background-video"
+    autoPlay
+    muted
+    loop
+    playsInline
+    poster="/images/hero-poster.jpg"
+  >
+    <source
+      src="/videos/hero1.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <div className="hero-video-overlay"></div>
+
+  <div className="hero-video-content">
+    <p className="eyebrow">
+      Digital ideas, thoughtfully built
+    </p>
+
+    <h1>
+      We turn bold ideas into useful digital experiences.
+    </h1>
+
+    <p className="hero-text">
+      Blue Giraffe Development Ltd creates clear, dependable
+      technology for organisations ready to move forward.
+    </p>
+
+    <a className="button" href="#about">
+      Explore what we do ↗
+    </a>
+  </div>
+</section>
+
+
       <section className="section-cream" id="about"><div className="section-heading"><p className="eyebrow">About us</p><h2>Building the Infrastructure for the Future of Learning.</h2></div><div className="two-col"><div><p className="lead">Blue Giraffe Development Limited (BGDL) is a technology and digital infrastructure development company focused on creating modern, connected and intelligent learning environments.</p><p>We design and develop blended learning environments where physical infrastructure, digital technology, connectivity, renewable energy and educational systems work together to transform how institutions teach, learn and operate.</p></div>
       <button className="md-card" onClick={() => setModal("video")}>
         <video

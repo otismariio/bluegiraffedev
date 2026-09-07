@@ -23,9 +23,7 @@ export default function Home() {
     <header className="site-header"><Link className="brand" href="#top"><img src="/images/logo.png" alt="Blue Giraffe Development Ltd" /></Link><button className="menu-toggle" onClick={() => setMenu(!menu)} aria-label="Toggle menu">☰</button><nav className={menu ? "site-nav open" : "site-nav"}><a href="/#about" onClick={() => setMenu(false)}>About</a><Link href="/services">Services</Link><Link href="/projects">Projects</Link><Link href="/careers">Careers</Link><Link href="/contact">Contact</Link></nav></header>
     <main id="main-content">
       
-      {/* <section className="hero section-blue" id="top"><div><h1>We turn bold ideas into complete, turnkey projects.</h1><p className="hero-text">Blue Giraffe Development Ltd creates clear, dependable technology for organisations ready to move forward.</p><a className="button" href="#about">Explore what we do ↗</a></div><div className="hero-slider"><div className="slide-image" style={{ backgroundImage: `url(/images/hero-${slide + 1}.png)` }} /><button className="slider-arrow previous" onClick={() => setSlide((slide + 2) % 3)} aria-label="Previous image">‹</button><button className="slider-arrow next" onClick={() => setSlide((slide + 1) % 3)} aria-label="Next image">›</button><div className="slider-dots">{[0, 1, 2].map(i => <button key={i} className={i === slide ? "active" : ""} onClick={() => setSlide(i)} aria-label={`Show image ${i + 1}`} />)}</div></div></section> */}
-
-      <section className="hero-video-section" id="top">
+     <section className="hero-video-section" id="top">
   <video
     className="hero-background-video"
     autoPlay
@@ -72,7 +70,7 @@ export default function Home() {
           poster="/images/md-photo.jpeg"
       >
           <source
-              src="/images/projects/md.mp4"
+              src="/videos/md.mp4"
               type="video/mp4"
           />
       </video>

@@ -165,21 +165,6 @@ export default function Home() {
 
     <footer className="site-footer"><img src="/images/logo2.png" alt="Blue Giraffe Development Ltd" /><div><p>Okenini Close, Living Spring Estate, Umuahia</p><a href="tel:+2349064815555">+2349064815555</a><a href="mailto:info@bluegiraffedev.com">info@bluegiraffedev.com</a></div><div><p>© {new Date().getFullYear()} Blue Giraffe Development Ltd</p><div className="socials"><a href="#">f</a><a href="#">◎</a><a href="#">in</a><a href="#">𝕏</a></div></div><a className="to-top" href="#top">↑<small>Top</small></a></footer>
 
-<div className="service-list">
-  {services.map((item, i) => (
-    <button
-      key={item[0]}
-      onClick={() => {
-        setSelected(i);
-        setModal("service");
-      }}
-    >
-      <span>0{i + 1}</span>
-      <strong>{item[0]}</strong>
-      <i>+</i>
-    </button>
-  ))}
-</div>
 
 {modal && (
   <dialog
@@ -212,25 +197,7 @@ export default function Home() {
       </>
     )}
 
-    {modal === "gallery" && (
-      <>
-        <p className="eyebrow">Project gallery</p>
-        <h2>Smart School transformation</h2>
-
-        <div className="gallery-grid">
-          <div>
-            <small>Before</small>
-            <div className="gallery-shot before" />
-          </div>
-
-          <div>
-            <small>After</small>
-            <div className="gallery-shot after" />
-          </div>
-        </div>
-      </>
-    )}
-
+   
     {modal === "video" && (
   <div className="md-video-frame">
     <video

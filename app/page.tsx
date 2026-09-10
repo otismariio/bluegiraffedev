@@ -20,7 +20,7 @@ export default function Home() {
     return () => window.clearInterval(timer);
   }, []);
   return <>
-    <header className="site-header"><Link className="brand" href="#top"><img src="/images/logo.png" alt="Blue Giraffe Development Ltd" /></Link><button className="menu-toggle" onClick={() => setMenu(!menu)} aria-label="Toggle menu">☰</button><nav className={menu ? "site-nav open" : "site-nav"}><a href="/#about" onClick={() => setMenu(false)}>About</a><Link href="/services">Services</Link><Link href="/projects">Projects</Link><Link href="/careers">Careers</Link><Link href="/contact">Contact</Link></nav></header>
+    <header className="site-header"><Link className="brand" href="#top"><img src="/images/logo.png" alt="Blue Giraffe Development Ltd" /></Link><button className="menu-toggle" onClick={() => setMenu(!menu)} aria-label="Toggle menu">☰</button><nav className={menu ? "site-nav open" : "site-nav"}><a href="/#about" onClick={() => setMenu(false)}>About</a><Link href="/services">Services</Link><Link href="/projects">Projects</Link><Link href="/events">Events</Link><Link href="/careers">Careers</Link><Link href="/contact">Contact</Link></nav></header>
     <main id="main-content">
       
      <section className="hero-video-section" id="top">
@@ -41,13 +41,10 @@ export default function Home() {
   <div className="hero-video-overlay"></div>
 
   <div className="hero-video-content">
-    <p className="eyebrow">
-      Digital ideas, thoughtfully built
-    </p>
-
-    <h1>
-      We turn bold ideas into useful digital experiences.
-    </h1>
+    
+    <h2>
+      We turn bold ideas into turnkey projects
+    </h2>
 
     <p className="hero-text">
       Blue Giraffe Development Ltd creates clear, dependable
